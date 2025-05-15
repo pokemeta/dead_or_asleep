@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy2rmc4ghaoqc"]
+[gd_scene load_steps=7 format=3 uid="uid://cy2rmc4ghaoqc"]
 
 [ext_resource type="Script" uid="uid://riu8xc86wiok" path="res://player_controller.gd" id="1_lvefo"]
 [ext_resource type="Material" uid="uid://b3311u658upok" path="res://textures/regular.tres" id="2_f0yg5"]
@@ -7,6 +7,12 @@
 material = ExtResource("2_f0yg5")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lvefo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0yg5"]
+bg_color = Color(0.0118248, 0.225097, 2.40654e-08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_va7e3"]
+bg_color = Color(0.103241, 0.717472, 3.85046e-07, 1)
 
 [node name="PlayerController" type="CharacterBody3D"]
 collision_layer = 2
@@ -21,6 +27,17 @@ shape = SubResource("CapsuleShape3D_lvefo")
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05812, 0.334945, 0)
+
+[node name="FlyUI" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05812, 1.4239, 0)
+
+[node name="FlyMeter" type="ProgressBar" parent="."]
+offset_right = 147.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_f0yg5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_va7e3")
+step = 1.0
+show_percentage = false
 
 [connection signal="finished_level" from="." to="." method="_on_finished_level"]
 [connection signal="kill_player" from="." to="." method="_on_kill_player"]

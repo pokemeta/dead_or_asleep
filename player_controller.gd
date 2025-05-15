@@ -53,6 +53,10 @@ var delay_deactivate = 2.0
 var ice_ball_obj = preload("res://ice_ball.tscn")
 var player_current_direction = 1
 var is_ice_active = false
+var fly_stamina = 200
+
+func _ready() -> void:
+	$FlyMeter.max_value = fly_stamina
 
 func _physics_process(delta: float) -> void:
 	handle_powerup_change()
@@ -62,9 +66,9 @@ func _physics_process(delta: float) -> void:
 	powerup_ice()
 	
 	# Gravity
-	if not is_on_floor() and not is_flying:
+	if (not is_on_floor() and not is_flying) or fly_stamina <= 0:
 		velocity += get_gravity() * delta
-	elif  not is_on_floor() and is_flying:
+	elif  not is_on_floor() and is_flying and fly_stamina > 0:
 		var input_dir := Vector2.ZERO
 		if Input.is_action_pressed("ui_up"):
 			input_dir.y = 1.0
@@ -133,10 +137,13 @@ func push_back(direction: Vector3, strength: float = KNOCKBACK_STRENGTH):
 func handle_powerup_change():
 	match current_power_state:
 		PowerState.NORMAL:
+			$FlyMeter.visible = false
 			$MeshInstance3D.set_surface_override_material(0, normal_texture)
 		PowerState.ENHANCED:
 			$MeshInstance3D.set_surface_override_material(0, enhanced_texture)
+			$FlyMeter.visible = true
 		PowerState.ICE:
+			$FlyMeter.visible = false
 			$MeshInstance3D.set_surface_override_material(0, ice_texture)
 		# Equivalent to switch default according to godot's docs
 		_:
@@ -162,6 +169,23 @@ func powerup_enhanced():
 		if Input.is_action_just_pressed("ui_accept"):
 			is_flying = false
 			delay_deactivate = 0.2
+	
+	powerup_enhanced_ui()
+
+func powerup_enhanced_ui():
+	if is_flying and not is_on_floor() and fly_stamina > 0:
+		fly_stamina -= 1
+	
+	if is_on_floor() and fly_stamina <= 0:
+		is_flying = false
+		fly_stamina = 200
+	
+	if is_on_floor():
+		fly_stamina = 200
+	
+	var player_screen_pos = get_viewport().get_camera_3d().unproject_position($FlyUI.global_position)
+	$FlyMeter.global_position = player_screen_pos
+	$FlyMeter.value = fly_stamina
 
 func powerup_ice():
 	if current_power_state == PowerState.ICE:

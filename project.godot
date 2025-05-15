@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="3dplatformertest"
+config/name="dead or asleep"
 run/main_scene="uid://cuv10ns361u52"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
