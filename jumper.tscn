@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6yeuefcvaijk"]
+
+[ext_resource type="Script" uid="uid://x4atwswijn6i" path="res://jumper.gd" id="1_jgrh8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_036b0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dwbse"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_036b0"]
+size = Vector3(0.683594, 0.407227, 1)
+
+[node name="Jumper" type="StaticBody3D"]
+transform = Transform3D(0.883261, 0, 0, 0, 0.394034, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 32
+collision_mask = 6
+script = ExtResource("1_jgrh8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_036b0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_dwbse")
+
+[node name="HitJump" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.514593, 0)
+collision_layer = 32
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitJump"]
+shape = SubResource("BoxShape3D_036b0")
+
+[connection signal="body_entered" from="HitJump" to="." method="_on_hit_jump_body_entered"]

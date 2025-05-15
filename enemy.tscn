@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://c45xlff7heu6q"]
+
+[ext_resource type="Script" uid="uid://dwifa321p4dqc" path="res://enemy.gd" id="1_7k104"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_7xaro"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7k104"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7k104"]
+size = Vector3(1.08398, 1.02368, 1.05566)
+
+[node name="Enemy" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 65
+script = ExtResource("1_7k104")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_7xaro")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_7k104")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532595, 0.252677, 0)
+debug_shape_thickness = 5
+
+[node name="Hit" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 66
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hit"]
+shape = SubResource("BoxShape3D_7k104")
+
+[connection signal="body_entered" from="Hit" to="." method="_on_hit_body_entered"]

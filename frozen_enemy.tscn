@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8516g7nlq562"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hjfuk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfn40"]
+albedo_color = Color(0.531624, 0.731843, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6xwpe"]
+material = SubResource("StandardMaterial3D_mfn40")
+
+[node name="FrozenEnemy" type="RigidBody3D"]
+mass = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_hjfuk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6xwpe")

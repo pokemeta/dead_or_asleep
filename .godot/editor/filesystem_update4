@@ -1,0 +1,8 @@
+res://wall_frozeable.tscn
+res://world.tscn
+res://wall_frozeable.gd
+res://player_controller.tscn
+res://enemy.tscn
+res://hud.tscn
+res://ice_ball.tscn
+res://frozen_enemy.tscn

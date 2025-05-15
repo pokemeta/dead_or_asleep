@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxekqd5mhvybu"]
+
+[ext_resource type="Script" uid="uid://ggwplfqnsfee" path="res://ice_ball.gd" id="1_0cgwx"]
+[ext_resource type="Material" uid="uid://bpe5gnc5lf4ed" path="res://textures/ice.tres" id="2_mc0kh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gbfbk"]
+bounce = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_gbfbk"]
+material = ExtResource("2_mc0kh")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ioo17"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0cgwx"]
+size = Vector3(1.03809, 1.05664, 1)
+
+[node name="IceBall" type="RigidBody3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+collision_layer = 64
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_gbfbk")
+script = ExtResource("1_0cgwx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_gbfbk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ioo17")
+
+[node name="HitBox" type="Area3D" parent="."]
+collision_layer = 64
+collision_mask = 132
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+shape = SubResource("BoxShape3D_0cgwx")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_enemy_body_entered"]

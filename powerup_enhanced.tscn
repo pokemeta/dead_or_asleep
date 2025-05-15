@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://etkwbobtve0h"]
+
+[ext_resource type="Script" uid="uid://cltu6vf8syegs" path="res://powerup_enhanced.gd" id="1_wnqa7"]
+[ext_resource type="Material" uid="uid://bvi0cacg56mt5" path="res://textures/enhanced.tres" id="2_0dwkl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rr1af"]
+material = ExtResource("2_0dwkl")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wnqa7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0dwkl"]
+
+[node name="Powerup_enhanced" type="StaticBody3D"]
+transform = Transform3D(0.500348, 0, 0, 0, 0.500348, 0, 0, 0, 0.500348, 0, 0, 0)
+collision_layer = 32
+collision_mask = 3
+script = ExtResource("1_wnqa7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_rr1af")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_wnqa7")
+
+[node name="HitBoxPower" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBoxPower"]
+transform = Transform3D(1.27242, 0, 0, 0, 1.27242, 0, 0, 0, 1.27242, 0, 0, 0)
+shape = SubResource("BoxShape3D_0dwkl")
+
+[connection signal="body_entered" from="HitBoxPower" to="." method="_on_hit_box_power_body_entered"]

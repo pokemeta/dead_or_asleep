@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://c51t1osnfskv7"]
+
+[ext_resource type="Script" uid="uid://biim7ht77aveu" path="res://end_level.gd" id="1_we7v3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qxwtn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_we7v3"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_35lck"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5e6yv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_35lck"]
+size = Vector3(1.45703, 32.0759, 2.57129)
+
+[node name="EndLevel" type="Node3D"]
+script = ExtResource("1_we7v3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(0.173303, 0, 0, 0, 4.34061, 0, 0, 0, 0.140426, 0, 0, -0.940231)
+collision_layer = 16
+collision_mask = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_qxwtn")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_we7v3")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(-1.01692e-08, 0.503095, 0, -0.232645, -2.1991e-08, 0, 0, 0, 0.108341, 0.330999, 1.96291, -0.940231)
+collision_layer = 16
+collision_mask = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("PrismMesh_35lck")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_5e6yv")
+
+[node name="Marker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.42341, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_35lck")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_player_entered"]

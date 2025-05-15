@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqvbcqj5aqoks"]
+
+[ext_resource type="Script" uid="uid://byarrj2tprla4" path="res://hud.gd" id="1_37p78"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n2snw"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_37p78"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_64ctp"]
+font_size = 48
+font_color = Color(0.942016, 0.74999, 7.70092e-07, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_37p78")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+text = "You were hit :("
+label_settings = SubResource("LabelSettings_n2snw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="LifeCounter" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Lives: 0"
+label_settings = SubResource("LabelSettings_37p78")
+
+[node name="FinishedLevel" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -33.5
+offset_right = 181.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level complete!"
+label_settings = SubResource("LabelSettings_64ctp")
+
+[connection signal="display_dead_message" from="." to="." method="_on_display_dead_message"]
+[connection signal="display_end_message" from="." to="." method="_on_display_end_message"]
+[connection signal="update_life_counter" from="." to="." method="_on_update_life_counter"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
