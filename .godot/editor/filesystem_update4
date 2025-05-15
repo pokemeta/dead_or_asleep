@@ -5,4 +5,3 @@ res://hud.tscn
 res://ice_ball.tscn
 res://frozen_enemy.tscn
 res://wall_frozeable.tscn
-res://player_controller.gd
