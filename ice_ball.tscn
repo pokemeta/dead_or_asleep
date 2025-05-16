@@ -12,7 +12,7 @@ material = ExtResource("2_mc0kh")
 [sub_resource type="SphereShape3D" id="SphereShape3D_ioo17"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0cgwx"]
-size = Vector3(1.03809, 1.05664, 1)
+size = Vector3(1.14258, 1.16016, 1)
 
 [node name="IceBall" type="RigidBody3D"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)

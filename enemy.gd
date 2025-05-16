@@ -43,17 +43,13 @@ func turn_around_enemy():
 # where the opposite direction doesn't work when moving.
 func _on_hit_body_entered(body: Node3D) -> void:
 	if body is Player:
-		var ply: Player = body
-		var collission_direction = body.global_position - global_position
+		var collision_direction = body.global_position - global_position
 		
-		body.push_back(collission_direction, 25.0)
-		body.emit_signal("kill_player")
-			
-		if collission_direction.y > 1.3:
-			body.velocity.y = ply.JUMP_VELOCITY
+		if collision_direction.y > 1.3:
+			body.velocity.y = body.JUMP_VELOCITY
 			queue_free()
 		else:
-			body.push_back(collission_direction, 25.0)
+			body.push_back(collision_direction.normalized(), 25.0)
 			body.emit_signal("kill_player")
 	
 	if body is Ice_Ball:

@@ -210,11 +210,17 @@ func powerup_ice():
 # The function for the kill signal
 func _on_kill_player() -> void:
 	if lives > 1:
-		if current_power_state == PowerState.ENHANCED or PowerState.ICE:
-			current_power_state = PowerState.NORMAL
-			is_flying = false
-			is_ice_active = false
-		lives -= 1
+		match current_power_state:
+			PowerState.ENHANCED:
+				current_power_state = PowerState.NORMAL
+				is_flying = false
+				is_ice_active = false
+			PowerState.ICE:
+				current_power_state = PowerState.NORMAL
+				is_flying = false
+				is_ice_active = false
+			PowerState.NORMAL:
+				lives -= 1
 	else:
 		# The hud gets called to display the dead message
 		hud.emit_signal("display_dead_message")
