@@ -1,5 +1,10 @@
-Camera3D
+MeshInstance3D
+Sprite3D
+ParallaxLayer
+Parallax2D
+ParallaxBackground
 GridMap
+Camera3D
 ProgressBar
 Marker3D
 Label
@@ -8,8 +13,3 @@ CanvasLayer
 SubViewport
 CollisionShape3D
 Area3D
-MeshInstance3D
-StaticBody3D
-Node3D
-RigidBody3D
-CharacterBody3D

@@ -1,25 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbdviol2b2fvo"]
+[gd_scene load_steps=13 format=3 uid="uid://bbdviol2b2fvo"]
 
-[ext_resource type="MeshLibrary" uid="uid://b2bdwtbwx3ap2" path="res://model/test_cube_meshlib.tres" id="1_44so7"]
+[ext_resource type="Texture2D" uid="uid://crjroqdxq6mu3" path="res://textures/Panorama_Sky_04-512x512.png" id="1_jupe1"]
 [ext_resource type="PackedScene" uid="uid://cy2rmc4ghaoqc" path="res://player_controller.tscn" id="2_7wpu6"]
+[ext_resource type="PackedScene" uid="uid://dqv6dhdxohhpi" path="res://model/tree1.glb" id="2_jupe1"]
+[ext_resource type="MeshLibrary" uid="uid://80o6oub02n87" path="res://model/test_cube_meshlib2.tres" id="2_sjaax"]
 [ext_resource type="PackedScene" uid="uid://bqvbcqj5aqoks" path="res://hud.tscn" id="3_7wpu6"]
 [ext_resource type="Script" uid="uid://eumv2vy2w4jp" path="res://camera.gd" id="3_j0w2u"]
 [ext_resource type="PackedScene" uid="uid://dmfwjquhl5dja" path="res://powerup_ice.tscn" id="5_0mtjx"]
 [ext_resource type="PackedScene" uid="uid://c45xlff7heu6q" path="res://enemy.tscn" id="5_vdwjp"]
 [ext_resource type="PackedScene" uid="uid://c51t1osnfskv7" path="res://end_level.tscn" id="5_vssfj"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j0w2u"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vxmh3"]
+panorama = ExtResource("1_jupe1")
 
-[sub_resource type="Sky" id="Sky_vssfj"]
-sky_material = SubResource("ProceduralSkyMaterial_j0w2u")
+[sub_resource type="Sky" id="Sky_hdmpu"]
+sky_material = SubResource("PanoramaSkyMaterial_vxmh3")
 
-[sub_resource type="Environment" id="Environment_vdwjp"]
+[sub_resource type="Environment" id="Environment_1ovra"]
 background_mode = 2
-sky = SubResource("Sky_vssfj")
-tonemap_mode = 2
-glow_enabled = true
+sky = SubResource("Sky_hdmpu")
+sky_custom_fov = 121.5
+sky_rotation = Vector3(0, 3.9619, 0)
 
 [node name="WorldTestCube" type="Node3D"]
 
@@ -28,15 +29,66 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_vdwjp")
+environment = SubResource("Environment_1ovra")
 
-[node name="GridMap" type="GridMap" parent="."]
+[node name="GridMap2" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6106, 0, 0)
-mesh_library = ExtResource("1_44so7")
+mesh_library = ExtResource("2_sjaax")
 data = {
-"cells": PackedInt32Array(65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 65530, 0, 0, 65531, 0, 0, 1, 0, 0, 65528, 0, 0, 65529, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -131059, 0, 0, -131058, 0, 0, -131056, 0, 0, -131057, 0, 0, -131069, 65535, 0, -131068, 65535, 0, -131067, 65535, 0, -131066, 65535, 0, -131065, 65535, 0, -131064, 65535, 0, -131063, 65535, 0, -131062, 65535, 0, -131061, 65535, 0, -131060, 65535, 0, -131059, 65535, 0, -131058, 65535, 0, -131057, 65535, 0, -131056, 65535, 0, 65528, 65535, 0, 65529, 65535, 0, 65530, 65535, 0, 65531, 65535, 0, 65532, 65535, 0, 65533, 65535, 0, 65534, 65535, 0, 65535, 65535, 0, 0, 65535, 0, 1, 65535, 0, 18, 65535, 0, 19, 65535, 0, 20, 65535, 0, 21, 65535, 0, 22, 65535, 0, 23, 65535, 0, 24, 65535, 0, 25, 65535, 0, 26, 65535, 0, 27, 65535, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 36, 0, 0, 37, 0, 0, 28, 65535, 0, 29, 65535, 0, 30, 65535, 0, 31, 65535, 0, 32, 65535, 0, 33, 65535, 0, 34, 65535, 0, 35, 65535, 0, 36, 65535, 0, 37, 65535, 0)
+"cells": PackedInt32Array(65528, 65535, 0, 65529, 65535, 0, 65530, 65535, 0, 65531, 65535, 0, 65532, 65535, 0, 65533, 65535, 0, 65534, 65535, 0, 65535, 65535, 0, 0, 65535, 0, 1, 65535, 0, 1, 0, 0, 0, 0, 0, 65535, 0, 0, 65534, 0, 0, 65533, 0, 0, 65532, 0, 0, 65531, 0, 0, 65530, 0, 0, 65529, 0, 0, 65528, 0, 0, -131069, 65535, 0, -131068, 65535, 0, -131067, 65535, 0, -131066, 65535, 0, -131065, 65535, 0, -131064, 65535, 0, -131063, 65535, 0, -131062, 65535, 0, -131061, 65535, 0, -131060, 65535, 0, -131059, 65535, 0, -131058, 65535, 0, -131057, 65535, 0, -131056, 65535, 0, -131056, 0, 0, -131057, 0, 0, -131058, 0, 0, -131059, 0, 0, -131060, 0, 0, -131061, 0, 0, -131062, 0, 0, -131063, 0, 0, -131064, 0, 0, -131065, 0, 0, -131068, 0, 0, -131069, 0, 0, -131067, 0, 0, -131066, 0, 0, 18, 65535, 0, 19, 65535, 0, 20, 65535, 0, 21, 65535, 0, 22, 65535, 0, 23, 65535, 0, 24, 65535, 0, 25, 65535, 0, 26, 65535, 0, 27, 65535, 0, 28, 65535, 0, 29, 65535, 0, 30, 65535, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 36, 0, 0, 36, 65535, 0, 37, 65535, 0, 37, 0, 0, 35, 65535, 0, 34, 65535, 0, 33, 65535, 0, 32, 65535, 0, 31, 65535, 0, 29, 0, 0, 28, 0, 0, 27, 0, 0, 26, 0, 0, 25, 0, 0, 24, 0, 0, 23, 0, 0, 20, 0, 0, 19, 0, 0, 18, 0, 0, 21, 0, 0, 22, 0, 0, 65528, 65533, 0, 65529, 65533, 0, 65530, 65533, 0, 65531, 65533, 0, 65532, 65533, 0, 65533, 65533, 0, 65534, 65533, 0, 65535, 65533, 0, 0, 65533, 0, 1, 65533, 0, 1, 65534, 0, 0, 65534, 0, 65535, 65534, 0, 65534, 65534, 0, 65533, 65534, 0, 65532, 65534, 0, 65531, 65534, 0, 65530, 65534, 0, 65529, 65534, 0, 65528, 65534, 0, -131069, 65533, 0, -131069, 65534, 0, -131068, 65534, 0, -131067, 65534, 0, -131066, 65534, 0, -131065, 65534, 0, -131064, 65534, 0, -131063, 65534, 0, -131062, 65534, 0, -131061, 65534, 0, -131060, 65534, 0, -131059, 65534, 0, -131058, 65534, 0, -131057, 65534, 0, -131056, 65534, 0, -131056, 65533, 0, -131057, 65533, 0, -131058, 65533, 0, -131059, 65533, 0, -131060, 65533, 0, -131061, 65533, 0, -131067, 65533, 0, -131068, 65533, 0, -131066, 65533, 0, -131065, 65533, 0, -131064, 65533, 0, -131063, 65533, 0, -131062, 65533, 0, 18, 65534, 0, 18, 65533, 0, 19, 65533, 0, 20, 65533, 0, 21, 65533, 0, 22, 65533, 0, 23, 65533, 0, 24, 65533, 0, 25, 65533, 0, 26, 65533, 0, 27, 65533, 0, 28, 65533, 0, 29, 65533, 0, 30, 65533, 0, 31, 65533, 0, 32, 65533, 0, 33, 65533, 0, 34, 65533, 0, 35, 65533, 0, 36, 65533, 0, 37, 65533, 0, 37, 65534, 0, 36, 65534, 0, 35, 65534, 0, 34, 65534, 0, 33, 65534, 0, 27, 65534, 0, 26, 65534, 0, 25, 65534, 0, 24, 65534, 0, 23, 65534, 0, 22, 65534, 0, 21, 65534, 0, 20, 65534, 0, 19, 65534, 0, 28, 65534, 0, 29, 65534, 0, 30, 65534, 0, 31, 65534, 0, 32, 65534, 0)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="tree1" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0621, 2.06555, -4.42829)
+
+[node name="tree2" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25355, 2.06555, -4.42829)
+
+[node name="tree3" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23605, 2.06555, -4.42829)
+
+[node name="tree4" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25861, 2.06555, -4.42829)
+
+[node name="tree5" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.60276, -2.08644, -4.42829)
+
+[node name="tree6" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4325, -2.08644, -4.42829)
+
+[node name="tree7" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2617, -2.08644, -4.42829)
+
+[node name="tree8" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9197, -2.08644, -4.42829)
+
+[node name="tree9" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.9652, -2.08644, -4.42829)
+
+[node name="tree10" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.434, -2.08644, -4.42829)
+
+[node name="tree11" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.8873, 2.06555, -4.42829)
+
+[node name="tree12" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.6634, 2.06555, -4.42829)
+
+[node name="tree13" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.3545, 2.06555, -4.42829)
+
+[node name="tree14" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.3545, 2.06555, -4.42829)
+
+[node name="tree15" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.1028, 2.06555, -4.42829)
+
+[node name="tree16" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.8511, 2.06555, -4.42829)
+
+[node name="tree17" parent="." instance=ExtResource("2_jupe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.4563, 2.06555, -4.42829)
 
 [node name="PlayerController" parent="." instance=ExtResource("2_7wpu6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0689, 3, 0)

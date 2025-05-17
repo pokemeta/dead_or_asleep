@@ -1,6 +1,6 @@
-res://ice_ball.gd
 res://world_test_cube.tscn
 res://model/test_cube_meshlib.tres
+res://model/test_cube_meshlib2.tres
 res://world.tscn
 res://player_controller.tscn
 res://enemy.tscn
