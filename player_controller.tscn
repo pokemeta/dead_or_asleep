@@ -48,6 +48,33 @@ bg_color = Color(0.0118248, 0.225097, 2.40654e-08, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_va7e3"]
 bg_color = Color(0.103241, 0.717472, 3.85046e-07, 1)
 
+[sub_resource type="Animation" id="Animation_va7e3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.560547)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../wing_l:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.14159, -0.560251)]
+}
+
 [sub_resource type="Animation" id="Animation_f0yg5"]
 resource_name = "flap"
 length = 0.5
@@ -77,37 +104,25 @@ tracks/1/keys = {
 "values": [Vector3(0, -3.14159, -0.560251), Vector3(0, -3.14159, -1.25838), Vector3(0, -3.14159, -0.560251)]
 }
 
-[sub_resource type="Animation" id="Animation_va7e3"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6nbh1"]
+_data = {
+&"RESET": SubResource("Animation_va7e3"),
+&"flap": SubResource("Animation_f0yg5")
+}
+
+[sub_resource type="Animation" id="Animation_halkx"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, -0.560547)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../wing_l:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -3.14159, -0.560251)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6nbh1"]
-_data = {
-&"RESET": SubResource("Animation_va7e3"),
-&"flap": SubResource("Animation_f0yg5")
+"values": [Vector3(0.652338, 0, 0.828338)]
 }
 
 [sub_resource type="Animation" id="Animation_6nbh1"]
@@ -140,21 +155,6 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_halkx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.652338, 0, 0.828338)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4garc"]
 _data = {
 &"RESET": SubResource("Animation_halkx"),
@@ -178,12 +178,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.36565, 0)
 visible = false
 
 [node name="wing_r" type="MeshInstance3D" parent="wings_placeholder"]
-transform = Transform3D(0.364126, 0.0842286, 0, -0.228567, 0.134183, 0, 0, 0, 0.16636, 0.641963, 2.60222, 0)
+transform = Transform3D(0.364126, 0.0842284, 0, -0.228566, 0.134183, 0, 0, 0, 0.16636, 0.641963, 2.60222, 0)
 mesh = SubResource("ArrayMesh_lq85v")
 skeleton = NodePath("")
 
 [node name="wing_l" type="MeshInstance3D" parent="wings_placeholder"]
-transform = Transform3D(-0.364194, -0.0841887, 1.45436e-08, -0.228459, 0.134208, 0, -3.18389e-08, -7.36001e-09, -0.16636, -0.642, 2.602, 0)
+transform = Transform3D(-0.364194, -0.0841886, -4.21753e-07, -0.228459, 0.134208, 0, 9.23298e-07, 2.13433e-07, -0.16636, -0.642, 2.602, 0)
 mesh = SubResource("ArrayMesh_lq85v")
 skeleton = NodePath("")
 

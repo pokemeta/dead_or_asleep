@@ -3,6 +3,8 @@ extends CharacterBody3D
 # The custom class we give to the player
 class_name Player
 
+var active_input = true
+
 # Variables for the speed and jump force
 const SPEED = 5.0
 const JUMP_VELOCITY = 10.0
@@ -55,6 +57,9 @@ var player_current_direction = 1
 var is_ice_active = false
 var fly_stamina = 200
 
+func enable_disable_input():
+	active_input = !active_input
+
 func _ready() -> void:
 	$FlyMeter.max_value = fly_stamina
 
@@ -90,7 +95,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		
 		# Now comes the code to move player, also includes a bit of the coyote handler code
-		if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or coyote_timer > 0) and not crossed_end:
+		if (Input.is_action_just_pressed("ui_accept") and active_input) and (is_on_floor() or coyote_timer > 0) and not crossed_end:
 			velocity.y = JUMP_VELOCITY
 			coyote_timer = 0.0
 
@@ -108,7 +113,7 @@ func _physics_process(delta: float) -> void:
 					$Marker3D.position.x *= -1
 
 			var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-			if direction:
+			if direction and active_input:
 				if current_power_state == PowerState.ENHANCED:
 					velocity.x = direction.x * SPEED * 1.5
 					velocity.z = direction.z * SPEED * 1.5

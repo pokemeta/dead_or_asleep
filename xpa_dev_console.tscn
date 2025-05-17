@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://gtio7vqse7pc"]
+
+[ext_resource type="Script" uid="uid://bfx4dcrn0135m" path="res://xpa_dev_console.gd" id="1_d0f14"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d0f14"]
+font_size = 20
+font_color = Color(0.581033, 0.581033, 0.581033, 1)
+
+[node name="XPADevConsole" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_d0f14")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 238.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+
+[node name="Background" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 0.780392)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+fit_content = true
+scroll_following = true
+vertical_alignment = 2
+
+[node name="LineEdit" type="LineEdit" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="VersionLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -174.0
+offset_top = -59.0
+offset_right = -7.0
+offset_bottom = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "XPADEVConsole v0.01"
+label_settings = SubResource("LabelSettings_d0f14")
