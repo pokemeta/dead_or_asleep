@@ -1,3 +1,6 @@
+res://ice_ball.gd
+res://world_test_cube.tscn
+res://model/test_cube_meshlib.tres
 res://world.tscn
 res://player_controller.tscn
 res://enemy.tscn
@@ -5,4 +8,3 @@ res://hud.tscn
 res://ice_ball.tscn
 res://frozen_enemy.tscn
 res://wall_frozeable.tscn
-res://ice_ball.gd

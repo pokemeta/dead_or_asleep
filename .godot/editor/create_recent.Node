@@ -1,3 +1,5 @@
+Camera3D
+GridMap
 ProgressBar
 Marker3D
 Label
@@ -10,6 +12,4 @@ MeshInstance3D
 StaticBody3D
 Node3D
 RigidBody3D
-GridMap
 CharacterBody3D
-RayCast3D
