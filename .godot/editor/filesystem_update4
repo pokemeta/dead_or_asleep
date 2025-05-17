@@ -1,10 +1,11 @@
-res://world_test_cube.tscn
-res://model/test_cube_meshlib.tres
 res://model/test_cube_meshlib2.tres
-res://world.tscn
 res://player_controller.tscn
+res://player_controller.gd
+res://world.tscn
 res://enemy.tscn
 res://hud.tscn
 res://ice_ball.tscn
 res://frozen_enemy.tscn
 res://wall_frozeable.tscn
+res://world_test_cube.tscn
+res://model/player_components/wings_placeholder.tscn

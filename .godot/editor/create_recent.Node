@@ -1,4 +1,7 @@
+AnimationPlayer
 MeshInstance3D
+Node3D
+AnimationTree
 Sprite3D
 ParallaxLayer
 Parallax2D
@@ -9,7 +12,3 @@ ProgressBar
 Marker3D
 Label
 Control
-CanvasLayer
-SubViewport
-CollisionShape3D
-Area3D

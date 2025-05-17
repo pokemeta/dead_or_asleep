@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct3eh1l3xxawy"]
+
+[ext_resource type="PackedScene" uid="uid://ddy3ybunpduhf" path="res://model/player_components/wings_placeholder.glb" id="1_g4tre"]
+
+[node name="wings_placeholder" instance=ExtResource("1_g4tre")]

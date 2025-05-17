@@ -138,13 +138,19 @@ func handle_powerup_change():
 	match current_power_state:
 		PowerState.NORMAL:
 			$FlyMeter.visible = false
+			$wings_placeholder.visible = false
+			$hand_placeholder.visible = false
 			$MeshInstance3D.set_surface_override_material(0, normal_texture)
 		PowerState.ENHANCED:
 			$MeshInstance3D.set_surface_override_material(0, enhanced_texture)
 			$FlyMeter.visible = true
+			$wings_placeholder.visible = true
+			$hand_placeholder.visible = false
 		PowerState.ICE:
 			$FlyMeter.visible = false
 			$MeshInstance3D.set_surface_override_material(0, ice_texture)
+			$wings_placeholder.visible = false
+			$hand_placeholder.visible = true
 		# Equivalent to switch default according to godot's docs
 		_:
 			print("No powestate set")
@@ -171,6 +177,9 @@ func powerup_enhanced():
 			delay_deactivate = 0.2
 	
 	powerup_enhanced_ui()
+	
+	if not is_on_floor() and is_flying:
+		$WingsPlayer.play("flap")
 
 func powerup_enhanced_ui():
 	if is_flying and not is_on_floor() and fly_stamina > 0:
@@ -201,11 +210,15 @@ func powerup_ice():
 			new_ice.force_direction = -3
 		
 		get_node("../BallParent").add_child(new_ice)
-	
-	if Input.is_action_just_pressed("snap") and is_ice_active:
-		for i in get_node("../FrozenObjects").get_children():
-			i.queue_free()
-			await get_tree().create_timer(0.3).timeout
+		
+	#destroy_frozen_objects()
+	if Input.is_action_just_pressed("snap"):
+		$HandPlayer.play("snap")
+
+func destroy_frozen_objects():
+	for i in get_node("../FrozenObjects").get_children():
+		i.queue_free()
+		await get_tree().create_timer(0.3).timeout
 
 # The function for the kill signal
 func _on_kill_player() -> void:

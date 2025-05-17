@@ -1,7 +1,41 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy2rmc4ghaoqc"]
+[gd_scene load_steps=17 format=4 uid="uid://cy2rmc4ghaoqc"]
 
 [ext_resource type="Script" uid="uid://riu8xc86wiok" path="res://player_controller.gd" id="1_lvefo"]
 [ext_resource type="Material" uid="uid://b3311u658upok" path="res://textures/regular.tres" id="2_f0yg5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_f0yg5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfvtk"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l65dp"]
+_surfaces = [{
+"aabb": AABB(-0.0609887, -1.02107, -0.971586, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lq85v"]
+resource_name = "wings_placeholder_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.0609887, -1.02107, -0.971586, 2, 2, 2),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_sfvtk"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_l65dp")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_yv3m6"]
 material = ExtResource("2_f0yg5")
@@ -14,10 +48,144 @@ bg_color = Color(0.0118248, 0.225097, 2.40654e-08, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_va7e3"]
 bg_color = Color(0.103241, 0.717472, 3.85046e-07, 1)
 
+[sub_resource type="Animation" id="Animation_f0yg5"]
+resource_name = "flap"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.560547), Vector3(0, 0, -1.25838), Vector3(0, 0, -0.560547)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../wing_l:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -3.14159, -0.560251), Vector3(0, -3.14159, -1.25838), Vector3(0, -3.14159, -0.560251)]
+}
+
+[sub_resource type="Animation" id="Animation_va7e3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.560547)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../wing_l:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.14159, -0.560251)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6nbh1"]
+_data = {
+&"RESET": SubResource("Animation_va7e3"),
+&"flap": SubResource("Animation_f0yg5")
+}
+
+[sub_resource type="Animation" id="Animation_6nbh1"]
+resource_name = "snap"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.652338, 0, 0.828338), Vector3(0.652338, 0.971016, 0.828338), Vector3(0.652338, 0.971016, 0.828338), Vector3(0.652338, 0, 0.828338)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"destroy_frozen_objects"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_halkx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.652338, 0, 0.828338)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4garc"]
+_data = {
+&"RESET": SubResource("Animation_halkx"),
+&"snap": SubResource("Animation_6nbh1")
+}
+
 [node name="PlayerController" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_lvefo")
+
+[node name="hand_placeholder" type="Node3D" parent="."]
+visible = false
+
+[node name="Hand" type="MeshInstance3D" parent="hand_placeholder"]
+transform = Transform3D(0.305, 0, 0, 0, 0.305, 0, 0, 0, 0.305, 0.652338, 0, 0.828338)
+mesh = SubResource("BoxMesh_f0yg5")
+
+[node name="wings_placeholder" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.36565, 0)
+visible = false
+
+[node name="wing_r" type="MeshInstance3D" parent="wings_placeholder"]
+transform = Transform3D(0.364126, 0.0842286, 0, -0.228567, 0.134183, 0, 0, 0, 0.16636, 0.641963, 2.60222, 0)
+mesh = SubResource("ArrayMesh_lq85v")
+skeleton = NodePath("")
+
+[node name="wing_l" type="MeshInstance3D" parent="wings_placeholder"]
+transform = Transform3D(-0.364194, -0.0841887, 1.45436e-08, -0.228459, 0.134208, 0, -3.18389e-08, -7.36001e-09, -0.16636, -0.642, 2.602, 0)
+mesh = SubResource("ArrayMesh_lq85v")
+skeleton = NodePath("")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_yv3m6")
@@ -38,6 +206,20 @@ theme_override_styles/background = SubResource("StyleBoxFlat_f0yg5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_va7e3")
 step = 1.0
 show_percentage = false
+
+[node name="WingsPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../wings_placeholder/wing_r")
+libraries = {
+&"": SubResource("AnimationLibrary_6nbh1")
+}
+speed_scale = 3.0
+
+[node name="HandPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../hand_placeholder/Hand")
+libraries = {
+&"": SubResource("AnimationLibrary_4garc")
+}
+speed_scale = 0.6
 
 [connection signal="finished_level" from="." to="." method="_on_finished_level"]
 [connection signal="kill_player" from="." to="." method="_on_kill_player"]
