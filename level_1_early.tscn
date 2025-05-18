@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwpiqcclt471w"]
+
+[ext_resource type="MeshLibrary" uid="uid://ymb5oup8ys8a" path="res://model/new_pack/forest_assetpack_early_meshlib.tres" id="1_um3uk"]
+[ext_resource type="PackedScene" uid="uid://cy2rmc4ghaoqc" path="res://player_controller.tscn" id="2_75wi2"]
+[ext_resource type="Script" uid="uid://eumv2vy2w4jp" path="res://camera.gd" id="3_jf4nv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_um3uk"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_75wi2"]
+sky_material = SubResource("ProceduralSkyMaterial_um3uk")
+
+[sub_resource type="Environment" id="Environment_jf4nv"]
+background_mode = 2
+sky = SubResource("Sky_75wi2")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Level1Early" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jf4nv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_um3uk")
+data = {
+"cells": PackedInt32Array(0, 20, 0, 65535, 10, 0, 65534, 24, 0, 65535, 11, 0, 65535, 12, 0, 65535, 13, 0, 65535, 14, 0, 65535, 15, 0, 65535, 16, 0, 65535, 17, 0, 65535, 18, 0, 65535, 19, 0, 65535, 20, 0, 65535, 21, 0, 65535, 22, 0, 65535, 23, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 65534, 13, 0, 65534, 14, 0, 65534, 15, 0, 65534, 16, 0, 65534, 17, 0, 65534, 20, 0, 65534, 21, 0, 65534, 19, 0, 65534, 18, 0, 65533, 18, 0, 65534, 23, 0, 65534, 25, 0, 65534, 22, 0, 65535, 24, 0, 0, 25, 0, 65535, 25, 0, 1, 23, 0, 0, 12, 0, 0, 11, 0, 0, 10, 0, 0, 9, 0, 65535, 9, 0, 65535, 8, 0, 65535, 7, 0, 65534, 7, 0, 65533, 7, 0, 65533, 8, 0, 65534, 8, 0, 65534, 9, 0, 65534, 10, 0, 65534, 11, 0, 65534, 12, 0, 65533, 9, 0, 0, 65531, 0, 65535, 65532, 0, 65535, 65533, 0, 65535, 65534, 0, 0, 65534, 0, 0, 65533, 0, 0, 65532, 0, 0, 65530, 0, 0, 65529, 0, 0, 65528, 0, 65535, 65529, 0, 65535, 65530, 0, 65535, 65531, 0, 65534, 65532, 0, 65534, 65531, 0, 65534, 65530, 0, 65534, 65529, 0, 65535, 65528, 0, 65534, 65528, 0, 65533, 65530, 0, 65533, 65531, 0, 65533, 65532, 0, 65533, 65533, 0, 65533, 65534, 0, 65533, 65535, 0, 65534, 65535, 0, 65534, 65534, 0, 65534, 65533, 0, 65535, 65535, 0, 65535, 0, 0, 65535, 1, 0, 65535, 2, 0, 0, 0, 0, 0, 65535, 0, 65535, 3, 0, 65535, 4, 0, 65535, 5, 0, 65535, 6, 0, 0, 2, 0, 0, 1, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 65534, 6, 0, 65534, 5, 0, 65534, 4, 0, 65534, 3, 0, 65534, 0, 0, 65534, 1, 0, 65534, 2, 0, 1, 65533, 0, 1, 65532, 0, 1, 65534, 0, 2, 65534, 0, 3, 65534, 0, 4, 65534, 0, 5, 65534, 0, 6, 65534, 0, 7, 65534, 0, 8, 65534, 0, 9, 65534, 0, 10, 65534, 0, 11, 65534, 0, 12, 65534, 0, 13, 65534, 0, 14, 65534, 0, 14, 65533, 0, 13, 65533, 0, 12, 65533, 0, 11, 65533, 0, 6, 65533, 0, 5, 65533, 0, 4, 65533, 0, 3, 65533, 0, 2, 65533, 0, 2, 65532, 0, 3, 65532, 0, 4, 65532, 0, 5, 65532, 0, 6, 65532, 0, 7, 65532, 0, 8, 65532, 0, 9, 65532, 0, 10, 65532, 0, 11, 65532, 0, 12, 65532, 0, 13, 65532, 0, 14, 65532, 0, 7, 65533, 0, 8, 65533, 0, 9, 65533, 0, 10, 65533, 0)
+}
+
+[node name="PlayerController" parent="." instance=ExtResource("2_75wi2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.13192, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77319, 4.59509, 10.8281)
+script = ExtResource("3_jf4nv")

@@ -1,6 +1,7 @@
 res://world.tscn
 res://model/test_cube_meshlib2.tres
+res://model/new_pack/forest_assetpack_early_meshlib.tres
 res://world_test_cube.tscn
 res://xpa_dev_console.tscn
 res://player_controller.tscn
-res://player_controller.gd
+res://level_1_early.tscn
