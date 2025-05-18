@@ -178,7 +178,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.36565, 0)
 visible = false
 
 [node name="wing_r" type="MeshInstance3D" parent="wings_placeholder"]
-transform = Transform3D(0.364126, 0.0842284, 0, -0.228566, 0.134183, 0, 0, 0, 0.16636, 0.641963, 2.60222, 0)
+transform = Transform3D(0.364126, 0.0842283, 0, -0.228566, 0.134183, 0, 0, 0, 0.16636, 0.641963, 2.60222, 0)
 mesh = SubResource("ArrayMesh_lq85v")
 skeleton = NodePath("")
 

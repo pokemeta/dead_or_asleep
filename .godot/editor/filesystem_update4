@@ -2,6 +2,5 @@ res://world.tscn
 res://model/test_cube_meshlib2.tres
 res://world_test_cube.tscn
 res://xpa_dev_console.tscn
-res://xpa_dev_console.gd
 res://player_controller.tscn
 res://player_controller.gd

@@ -146,11 +146,13 @@ func handle_powerup_change():
 			$wings_placeholder.visible = false
 			$hand_placeholder.visible = false
 			$MeshInstance3D.set_surface_override_material(0, normal_texture)
+			is_ice_active = false
 		PowerState.ENHANCED:
 			$MeshInstance3D.set_surface_override_material(0, enhanced_texture)
 			$FlyMeter.visible = true
 			$wings_placeholder.visible = true
 			$hand_placeholder.visible = false
+			is_ice_active = false
 		PowerState.ICE:
 			$FlyMeter.visible = false
 			$MeshInstance3D.set_surface_override_material(0, ice_texture)
