@@ -147,6 +147,7 @@ func handle_powerup_change():
 			$hand_placeholder.visible = false
 			$MeshInstance3D.set_surface_override_material(0, normal_texture)
 			is_ice_active = false
+			is_flying = false
 		PowerState.ENHANCED:
 			$MeshInstance3D.set_surface_override_material(0, enhanced_texture)
 			$FlyMeter.visible = true
@@ -158,6 +159,7 @@ func handle_powerup_change():
 			$MeshInstance3D.set_surface_override_material(0, ice_texture)
 			$wings_placeholder.visible = false
 			$hand_placeholder.visible = true
+			is_flying = false
 		# Equivalent to switch default according to godot's docs
 		_:
 			print("No powestate set")
