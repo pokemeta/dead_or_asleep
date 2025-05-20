@@ -1,14 +1,14 @@
+Label
 CollisionShape3D
 Area3D
+Marker3D
 GridMap
 MeshInstance3D
 CanvasLayer
 Button
 AudioStreamPlayer
-Label
 StaticBody3D
 Node3D
 Camera3D
 CharacterBody3D
 VScrollBar
-ScrollContainer

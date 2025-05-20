@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dibmhvpc5fl7a"]
+[gd_scene load_steps=16 format=3 uid="uid://dibmhvpc5fl7a"]
 
 [ext_resource type="Shader" uid="uid://bqyuyogdil7vx" path="res://shaders/Checkerboard.gdshader" id="1_1ut2v"]
 [ext_resource type="AudioStream" uid="uid://d3ks0vae48ho7" path="res://audio/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav" id="1_u8hmd"]
@@ -45,6 +45,11 @@ size = Vector3(8.03101, 7.2561, 5.61035)
 [sub_resource type="LabelSettings" id="LabelSettings_qp6gi"]
 font_size = 32
 outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u8hmd"]
+font_size = 24
+outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [node name="MapOverworldEarly" type="Node3D"]
@@ -120,6 +125,22 @@ text = "Level 1: Forest
 Press Enter to start"
 label_settings = SubResource("LabelSettings_qp6gi")
 horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="HUDOverworld"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -83.0
+offset_right = 180.0
+offset_bottom = -12.0
+grow_vertical = 0
+text = "Controls:
+WASD to move
+
+Get near the tree 
+area to access level"
+label_settings = SubResource("LabelSettings_u8hmd")
 
 [connection signal="body_entered" from="Level1World/Area3D" to="PlayerWorld" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Level1World/Area3D" to="PlayerWorld" method="_on_area_3d_body_exited"]

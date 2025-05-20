@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqvbcqj5aqoks"]
+[gd_scene load_steps=8 format=3 uid="uid://bqvbcqj5aqoks"]
 
 [ext_resource type="Script" uid="uid://byarrj2tprla4" path="res://hud.gd" id="1_37p78"]
 
@@ -8,10 +8,24 @@ font_size = 48
 [sub_resource type="LabelSettings" id="LabelSettings_37p78"]
 font_size = 48
 
+[sub_resource type="LabelSettings" id="LabelSettings_640wx"]
+font_size = 48
+font_color = Color(0.948459, 0.620071, 0, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_64ctp"]
 font_size = 48
-font_color = Color(0.942016, 0.74999, 7.70092e-07, 1)
+font_color = Color(0.519503, 0, 0.0279762, 1)
 outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8sq4i"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_a2258"]
+font_size = 14
+outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [node name="HUD" type="CanvasLayer"]
@@ -59,7 +73,65 @@ offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Level complete!"
+label_settings = SubResource("LabelSettings_640wx")
+
+[node name="FinishedLevelSecret" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -33.5
+offset_right = 181.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "This is just the beginning"
 label_settings = SubResource("LabelSettings_64ctp")
+
+[node name="InstructionsDoor" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -117.5
+offset_top = -45.0
+offset_right = 117.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press Enter to open"
+label_settings = SubResource("LabelSettings_8sq4i")
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -83.0
+offset_right = 180.0
+offset_bottom = -12.0
+grow_vertical = 0
+text = "Controls:
+WASD to move
+
+Enhanced powerup(beige):
+Press Spacebar twice to \"fly\"
+and move with WASD in the
+air.
+
+Ice powerup(blue):
+Press F to shoot freeze balls
+to freeze enemies, and press
+G to \"snap your fingers\" and
+destroy them.
+
+Objective: reach the flag
+at the end of the
+level to complete it."
+label_settings = SubResource("LabelSettings_a2258")
 
 [connection signal="display_dead_message" from="." to="." method="_on_display_dead_message"]
 [connection signal="display_end_message" from="." to="." method="_on_display_end_message"]

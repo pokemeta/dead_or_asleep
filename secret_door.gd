@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 
 func _on_hit_box_body_entered(body: Node3D) -> void:
 	body.can_cross_secret = true
+	bg_music.stop()
 
 func _on_hit_box_body_exited(body: Node3D) -> void:
 	body.can_cross_secret = false

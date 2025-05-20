@@ -72,6 +72,8 @@ func _ready() -> void:
 	$FlyMeter.max_value = fly_stamina
 
 func _physics_process(delta: float) -> void:
+	
+	hud.toggle_door_instructions(can_cross_secret)
 	if can_cross_secret and Input.is_action_just_pressed("ui_accept"):
 		change_to_secret()
 	
@@ -142,6 +144,7 @@ func _physics_process(delta: float) -> void:
 	
 	#####################
 	if end_timer >= 240:
+		Checkpoint.checkpoint_passed = false
 		FancyFade.horizontal_paint_brush(map_scene.instantiate())
 	#####################
 

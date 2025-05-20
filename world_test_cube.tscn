@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bbdviol2b2fvo"]
+[gd_scene load_steps=21 format=3 uid="uid://bbdviol2b2fvo"]
 
 [ext_resource type="Texture2D" uid="uid://crjroqdxq6mu3" path="res://textures/Panorama_Sky_04-512x512.png" id="1_jupe1"]
 [ext_resource type="Script" uid="uid://cbwn8ghgetj67" path="res://level_script.gd" id="1_sjaax"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://cpiv3vihlp7g8" path="res://secret_door.tscn" id="7_1ovra"]
 [ext_resource type="PackedScene" uid="uid://dcdtmtlpxl4qr" path="res://secret_area_trigger.tscn" id="7_5hf2s"]
 [ext_resource type="PackedScene" uid="uid://etkwbobtve0h" path="res://powerup_enhanced.tscn" id="8_vxmh3"]
+[ext_resource type="PackedScene" uid="uid://dmfwjquhl5dja" path="res://powerup_ice.tscn" id="13_vfsmo"]
+[ext_resource type="PackedScene" uid="uid://c45xlff7heu6q" path="res://enemy.tscn" id="14_gcsmq"]
+[ext_resource type="Script" uid="uid://bof05f80ahom4" path="res://checkpoint_spawn.gd" id="15_gcsmq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vxmh3"]
 panorama = ExtResource("1_jupe1")
@@ -25,6 +28,9 @@ background_mode = 2
 sky = SubResource("Sky_hdmpu")
 sky_custom_fov = 121.5
 sky_rotation = Vector3(0, 3.9619, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vfsmo"]
+size = Vector3(5.65991, 29.5127, 1)
 
 [node name="WorldTestCube" type="Node3D"]
 script = ExtResource("1_sjaax")
@@ -209,7 +215,7 @@ remove_object_tareget = NodePath("../GridMap3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1285, 15.5949, -1.25118)
 
 [node name="PlayerController" parent="." instance=ExtResource("2_7wpu6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.93113, 3.19816, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.4941, 3.19816, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.378, 4.43669, 7.56097)
@@ -220,9 +226,38 @@ script = ExtResource("3_j0w2u")
 [node name="Powerup_enhanced" parent="." instance=ExtResource("8_vxmh3")]
 transform = Transform3D(0.500348, 0, 0, 0, 0.500348, 0, 0, 0, 0.500348, -8.10578, 7.14322, 0)
 
+[node name="Powerup_enhanced3" parent="." instance=ExtResource("8_vxmh3")]
+transform = Transform3D(0.500348, 0, 0, 0, 0.500348, 0, 0, 0, 0.500348, -16.1481, -10.5624, 0)
+
+[node name="Powerup_enhanced2" parent="." instance=ExtResource("8_vxmh3")]
+transform = Transform3D(0.500348, 0, 0, 0, 0.500348, 0, 0, 0, 0.500348, 53.3951, 1.23687, 0)
+
+[node name="Powerup_ice" parent="." instance=ExtResource("13_vfsmo")]
+transform = Transform3D(0.500348, 0, 0, 0, 0.500348, 0, 0, 0, 0.500348, 83.35, 1.23687, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("14_gcsmq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.4806, -7.48816, 0)
+
+[node name="Enemy2" parent="." instance=ExtResource("14_gcsmq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.1129, -11.4882, 0)
+
+[node name="Enemy3" parent="." instance=ExtResource("14_gcsmq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.7528, -15.4882, 0)
+
+[node name="Checkpoint_spawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.56, 11.0272, 0)
+script = ExtResource("15_gcsmq")
+
+[node name="Area3D" type="Area3D" parent="Checkpoint_spawn"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint_spawn/Area3D"]
+shape = SubResource("BoxShape3D_vfsmo")
+
 [node name="EndLevel" parent="." instance=ExtResource("5_vssfj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.366, -17.8289, 0)
 
 [node name="BallParent" type="Node3D" parent="."]
 
 [node name="FrozenObjects" type="Node3D" parent="."]
+
+[connection signal="body_entered" from="Checkpoint_spawn/Area3D" to="Checkpoint_spawn" method="_on_area_3d_body_entered"]

@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctahfycubrxf4"]
+[gd_scene load_steps=3 format=3 uid="uid://ctahfycubrxf4"]
 
 [ext_resource type="Script" uid="uid://csyi1whhxpy1a" path="res://menu.gd" id="1_lti8b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lti8b"]
+font_size = 20
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_lti8b")
@@ -18,5 +23,26 @@ offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Play"
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -314.0
+offset_top = -222.0
+offset_right = 314.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Warning: this is a prototype, is it by no means the true game but
+rather, its basic gameplay to show what can it be in the future.
+
+This build was made for demostrative purposes, and as such, any
+feedback or suggestions should be brought to the creator of the
+project - @xrpxArts on twitter"
+label_settings = SubResource("LabelSettings_lti8b")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
