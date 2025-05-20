@@ -3,4 +3,6 @@ res://model/test_cube_meshlib2.tres
 res://world.tscn
 res://xpa_dev_console.tscn
 res://player_controller.tscn
-res://player_controller.gd
+res://level_script.gd
+res://end_level.tscn
+res://end_level.gd
