@@ -1,8 +1,9 @@
-res://map_overworld_early.tscn
 res://model/test_cube_meshlib2.tres
+res://menu.tscn
 res://world_test_cube.tscn
-res://player_world.gd
+res://map_overworld_early.tscn
 res://end_level.tscn
-res://end_level.gd
 res://player_controller.tscn
+res://menu.gd
+res://player_world.gd
 res://player_controller.gd

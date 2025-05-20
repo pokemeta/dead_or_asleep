@@ -1,6 +1,7 @@
+CanvasLayer
+Button
 AudioStreamPlayer
 Label
-CanvasLayer
 CollisionShape3D
 Area3D
 StaticBody3D
@@ -11,4 +12,3 @@ CharacterBody3D
 GridMap
 VScrollBar
 ScrollContainer
-VBoxContainer

@@ -57,6 +57,8 @@ var player_current_direction = 1
 var is_ice_active = false
 var fly_stamina = 200
 
+@onready var map_scene = preload("res://map_overworld_early.tscn")
+
 func enable_disable_input():
 	active_input = !active_input
 
@@ -131,7 +133,7 @@ func _physics_process(delta: float) -> void:
 	
 	#####################
 	if end_timer >= 240:
-		get_tree().change_scene_to_file("res://map_overworld_early.tscn")
+		FancyFade.horizontal_paint_brush(map_scene.instantiate())
 	#####################
 
 # Function that does the magic for getting the player pushed

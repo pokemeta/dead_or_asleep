@@ -7,6 +7,9 @@ const JUMP_VELOCITY = 4.5
 
 var can_open_level = false
 
+@onready var map_scene = preload("res://world_test_cube.tscn")
+const CUSTOM_IMAGE = preload("res://addons/transitions/images/Radial_01.png")
+
 func _ready() -> void:
 	$"../BGMusic".play()
 
@@ -34,8 +37,8 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") and can_open_level:
-		get_tree().change_scene_to_file("res://world_test_cube.tscn")
-"loop_mode"
+		FancyFade.custom_fade(map_scene.instantiate(), 1.0, CUSTOM_IMAGE)
+		
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Player_Overworld:
 		$"../HUDOverworld/Label".visible = true

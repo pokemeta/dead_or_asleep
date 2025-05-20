@@ -11,13 +11,19 @@ config_version=5
 [application]
 
 config/name="dead or asleep"
-run/main_scene="uid://bbdviol2b2fvo"
+run/main_scene="uid://ctahfycubrxf4"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 XpaDevConsole="*res://xpa_dev_console.tscn"
+Transitions="*res://addons/transitions/Transitions.gd"
+FancyFade="*res://addons/transitions/FancyFade.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/transitions/plugin.cfg")
 
 [input]
 
