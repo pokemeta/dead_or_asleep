@@ -59,6 +59,10 @@ var fly_stamina = 200
 
 @onready var map_scene = preload("res://map_overworld_early.tscn")
 
+var found_secret = false
+
+var can_cross_secret = false
+
 func enable_disable_input():
 	active_input = !active_input
 
@@ -66,6 +70,9 @@ func _ready() -> void:
 	$FlyMeter.max_value = fly_stamina
 
 func _physics_process(delta: float) -> void:
+	if can_cross_secret and Input.is_action_just_pressed("ui_accept"):
+		change_to_secret()
+	
 	handle_powerup_change()
 	
 	powerup_enhanced()
@@ -230,6 +237,9 @@ func destroy_frozen_objects():
 	for i in get_node("../FrozenObjects").get_children():
 		i.queue_free()
 		await get_tree().create_timer(0.3).timeout
+
+func change_to_secret():
+	FancyFade.cross_fade(map_scene.instantiate())
 
 # The function for the kill signal
 func _on_kill_player() -> void:
