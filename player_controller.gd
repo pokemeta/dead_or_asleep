@@ -131,7 +131,7 @@ func _physics_process(delta: float) -> void:
 	
 	#####################
 	if end_timer >= 240:
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://map_overworld_early.tscn")
 	#####################
 
 # Function that does the magic for getting the player pushed

@@ -1,30 +1,79 @@
-[gd_scene load_steps=6 format=3 uid="uid://dibmhvpc5fl7a"]
+[gd_scene load_steps=15 format=3 uid="uid://dibmhvpc5fl7a"]
 
+[ext_resource type="Shader" uid="uid://bqyuyogdil7vx" path="res://shaders/Checkerboard.gdshader" id="1_1ut2v"]
+[ext_resource type="AudioStream" uid="uid://d3ks0vae48ho7" path="res://audio/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav" id="1_u8hmd"]
 [ext_resource type="Script" uid="uid://bpnasvmsm3plw" path="res://player_world.gd" id="1_v2k8s"]
+[ext_resource type="PackedScene" uid="uid://dqv6dhdxohhpi" path="res://model/tree1.glb" id="3_qp6gi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1ut2v"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_qp6gi"]
+sky_material = SubResource("ProceduralSkyMaterial_1ut2v")
+
+[sub_resource type="Environment" id="Environment_u8hmd"]
+background_mode = 2
+sky = SubResource("Sky_qp6gi")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qp6gi"]
+render_priority = 0
+shader = ExtResource("1_1ut2v")
+shader_parameter/x_axis_squares = 64
+shader_parameter/y_axis_squares = 64
+shader_parameter/a_square_color = Color(0.18359, 0.18359, 0.18359, 1)
+shader_parameter/b_square_color = Color(0, 0, 0, 1)
+shader_parameter/movement_modifier_x = 0.0
+shader_parameter/movement_modifier_y = 0.0
+shader_parameter/movement_strenght = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_r0ns4"]
+material = SubResource("ShaderMaterial_qp6gi")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_v2k8s"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ut2v"]
+size = Vector3(4.5354, 1, 4.51563)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r0ns4"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_v2k8s"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qp6gi"]
+size = Vector3(8.03101, 7.2561, 5.61035)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qp6gi"]
+font_size = 32
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
 [node name="MapOverworldEarly" type="Node3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u8hmd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_u8hmd")
+volume_db = -10.0
+
+[node name="Terrain" type="StaticBody3D" parent="."]
 transform = Transform3D(24.6279, 0, 0, 0, 0.3, 0, 0, 0, 24.6279, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain"]
 transform = Transform3D(4.51774, 0, 0, 0, 1, 0, 0, 0, 4.51774, 0, 0, 0)
 mesh = SubResource("BoxMesh_r0ns4")
 skeleton = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_v2k8s")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain"]
+visible = false
+shape = SubResource("BoxShape3D_1ut2v")
 
 [node name="PlayerWorld" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 2.15951)
 script = ExtResource("1_v2k8s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerWorld"]
@@ -32,3 +81,45 @@ shape = SubResource("CapsuleShape3D_r0ns4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerWorld"]
 mesh = SubResource("CapsuleMesh_v2k8s")
+
+[node name="Camera3D" type="Camera3D" parent="PlayerWorld"]
+transform = Transform3D(1, 0, 0, 0, 0.677544, 0.735482, 0, -0.735482, 0.677544, 0.044323, 11.1595, 12.8189)
+
+[node name="Level1World" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.86753, 0, -15.3525)
+
+[node name="Area3D" type="Area3D" parent="Level1World"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level1World/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51276, 0, 0)
+shape = SubResource("BoxShape3D_qp6gi")
+
+[node name="tree1" parent="Level1World/Area3D" instance=ExtResource("3_qp6gi")]
+
+[node name="tree2" parent="Level1World/Area3D" instance=ExtResource("3_qp6gi")]
+transform = Transform3D(0.722183, 0, 0.691702, 0, 1, 0, -0.691702, 0, 0.722183, 2.94106, 0, -3.27925)
+
+[node name="tree3" parent="Level1World/Area3D" instance=ExtResource("3_qp6gi")]
+transform = Transform3D(0.73769, 0, -0.67514, 0, 1, 0, 0.67514, 0, 0.73769, 6.74772, 0, -1.08748)
+
+[node name="HUDOverworld" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="HUDOverworld"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Level 1: Forest
+Press Enter to start"
+label_settings = SubResource("LabelSettings_qp6gi")
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Level1World/Area3D" to="PlayerWorld" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Level1World/Area3D" to="PlayerWorld" method="_on_area_3d_body_exited"]
