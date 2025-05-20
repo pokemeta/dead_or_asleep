@@ -1,11 +1,2 @@
 res://world_test_cube.tscn
 res://model/test_cube_meshlib2.tres
-res://level_script.gd
-res://checkpoint_spawn.gd
-res://player_controller.tscn
-res://player_controller.gd
-res://hud.tscn
-res://secret_door.tscn
-res://world_test_cube_secret.tscn
-res://map_overworld_early.tscn
-res://menu.tscn
