@@ -63,6 +63,8 @@ var found_secret = false
 
 var can_cross_secret = false
 
+@onready var secret_scene = preload("res://world_test_cube_secret.tscn")
+
 func enable_disable_input():
 	active_input = !active_input
 
@@ -239,7 +241,7 @@ func destroy_frozen_objects():
 		await get_tree().create_timer(0.3).timeout
 
 func change_to_secret():
-	FancyFade.cross_fade(map_scene.instantiate())
+	FancyFade.cross_fade(secret_scene.instantiate())
 
 # The function for the kill signal
 func _on_kill_player() -> void:

@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1747757980
+::res://::1747761260
 camera.gd::GDScript/GDScript::322810486917301845::1747184389::0::1::::<>Camera3D<><>0<>0<><>::
 end_level.gd::GDScript/GDScript::2965232602659448240::1747723173::0::1::::<>Node3D<><>0<>0<><>::
-end_level.tscn::PackedScene::6933381315368261394::1747726671::0::1::::<><><>0<>0<><>::uid://biim7ht77aveu::::res://end_level.gd
+end_level.tscn::PackedScene::6933381315368261394::1747761176::0::1::::<><><>0<>0<><>::uid://biim7ht77aveu::::res://end_level.gd
 enemy.gd::GDScript/GDScript::8720236731678359302::1747426678::0::1::::<>CharacterBody3D<><>0<>0<><>::
 enemy.tscn::PackedScene/PackedScene::6871665571881759182::1747455655::0::1::::<><><>0<>0<><>::uid://dwifa321p4dqc::::res://enemy.gd
 frozen_enemy.tscn::PackedScene/PackedScene::4766218222972809857::1747455655::0::1::::<><><>0<>0<><>::
@@ -15,23 +15,27 @@ jumper.gd::GDScript/GDScript::1674245472957493858::1747246248::0::1::::<>StaticB
 jumper.tscn::PackedScene/PackedScene::6998519388048170540::1747260998::0::1::::<><><>0<>0<><>::uid://x4atwswijn6i::::res://jumper.gd
 level_1_early.tscn::PackedScene/PackedScene::3962055327347987074::1747700120::0::1::::<><><>0<>0<><>::uid://ymb5oup8ys8a::::res://model/new_pack/forest_assetpack_early_meshlib.tres<>uid://cy2rmc4ghaoqc::::res://player_controller.tscn<>uid://eumv2vy2w4jp::::res://camera.gd
 level_script.gd::GDScript/GDScript::4889295099950823098::1747715970::0::1::::<>Node3D<><>0<>0<><>::
-map_overworld_early.tscn::PackedScene::7723579408701744372::1747726671::0::1::::<><><>0<>0<><>::uid://bqyuyogdil7vx::::res://shaders/Checkerboard.gdshader<>uid://d3ks0vae48ho7::::res://audio/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav<>uid://bpnasvmsm3plw::::res://player_world.gd<>uid://dqv6dhdxohhpi::::res://model/tree1.glb
-menu.gd::GDScript::6086318952228614620::1747726329::0::1::::<>CanvasLayer<><>0<>0<><>::
-menu.tscn::PackedScene::6106864608988459195::1747726671::0::1::::<><><>0<>0<><>::uid://csyi1whhxpy1a::::res://menu.gd
-player_controller.gd::GDScript::1210999847601551558::1747726671::0::1::::Player<>CharacterBody3D<><>0<>0<><>::
-player_controller.tscn::PackedScene::6514165582590493898::1747726671::0::1::::<><><>0<>0<><>::uid://riu8xc86wiok::::res://player_controller.gd<>uid://b3311u658upok::::res://textures/regular.tres
-player_world.gd::GDScript::3466123515719649960::1747726431::0::1::::Player_Overworld<>CharacterBody3D<><>0<>0<><>::
+map_overworld_early.tscn::PackedScene::7723579408701744372::1747760013::0::1::::<><><>0<>0<><>::uid://bqyuyogdil7vx::::res://shaders/Checkerboard.gdshader<>uid://d3ks0vae48ho7::::res://audio/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav<>uid://bpnasvmsm3plw::::res://player_world.gd<>uid://dqv6dhdxohhpi::::res://model/tree1.glb
+menu.gd::GDScript/GDScript::6086318952228614620::1747726329::0::1::::<>CanvasLayer<><>0<>0<><>::
+menu.tscn::PackedScene::6106864608988459195::1747761177::0::1::::<><><>0<>0<><>::uid://csyi1whhxpy1a::::res://menu.gd
+player_controller.gd::GDScript::1210999847601551558::1747761176::0::1::::Player<>CharacterBody3D<><>0<>0<><>::
+player_controller.tscn::PackedScene::6514165582590493898::1747761176::0::1::::<><><>0<>0<><>::uid://riu8xc86wiok::::res://player_controller.gd<>uid://b3311u658upok::::res://textures/regular.tres
+player_world.gd::GDScript/GDScript::3466123515719649960::1747726431::0::1::::Player_Overworld<>CharacterBody3D<><>0<>0<><>::
 powerup_enhanced.gd::GDScript/GDScript::5585412636436821422::1747260225::0::1::::<>StaticBody3D<><>0<>0<><>::
 powerup_enhanced.tscn::PackedScene/PackedScene::320625083495106273::1747260998::0::1::::<><><>0<>0<><>::uid://cltu6vf8syegs::::res://powerup_enhanced.gd<>uid://bvi0cacg56mt5::::res://textures/enhanced.tres
 powerup_ice.gd::GDScript/GDScript::915913810583207566::1747260236::0::1::::<>StaticBody3D<><>0<>0<><>::
 powerup_ice.tscn::PackedScene/PackedScene::8013202781095618110::1747260998::0::1::::<><><>0<>0<><>::uid://nbw74o7w4qta::::res://powerup_ice.gd<>uid://bpe5gnc5lf4ed::::res://textures/ice.tres
 README.md::TextFile/TextFile::-1::1747269543::0::1::::<><><>0<>0<><>::
+secret_area_trigger.gd::GDScript::7770285292939283977::1747760607::0::1::::<>Node3D<><>0<>0<><>::
+secret_area_trigger.tscn::PackedScene::7307008939656203661::1747761177::0::1::::<><><>0<>0<><>::uid://dix8p03i5qaqj::::res://secret_area_trigger.gd
+secret_door.gd::GDScript::5756146959125095049::1747761006::0::1::::<>Node3D<><>0<>0<><>::
+secret_door.tscn::PackedScene::5843515218748761717::1747761177::0::1::::<><><>0<>0<><>::uid://coak5t0k7ta8p::::res://secret_door.gd
 Tiles.tres::MeshLibrary/MeshLibrary::421191181156648116::1747089505::0::1::::<><><>0<>0<><>::
 tiles.tscn::PackedScene/PackedScene::3423593047885406287::1747091611::0::1::::<><><>0<>0<><>::
 wall_frozeable.gd::GDScript/GDScript::8225972685245688080::1747268716::0::1::::<>StaticBody3D<><>0<>0<><>::
 wall_frozeable.tscn::PackedScene/PackedScene::6739284687146874915::1747455655::0::1::::<><><>0<>0<><>::uid://dpgytk7k4pkoe::::res://wall_frozeable.gd<>uid://b3311u658upok::::res://textures/regular.tres
 world.tscn::PackedScene/PackedScene::6221594171566351271::1747717316::0::1::::<><><>0<>0<><>::uid://eumv2vy2w4jp::::res://camera.gd<>uid://cy2rmc4ghaoqc::::res://player_controller.tscn<>uid://c45xlff7heu6q::::res://enemy.tscn<>uid://c51t1osnfskv7::::res://end_level.tscn<>uid://bqvbcqj5aqoks::::res://hud.tscn<>uid://c6yeuefcvaijk::::res://jumper.tscn<>uid://etkwbobtve0h::::res://powerup_enhanced.tscn<>uid://dmfwjquhl5dja::::res://powerup_ice.tscn<>uid://c3atbfrh7btqp::::res://wall_frozeable.tscn
-world_test_cube.tscn::PackedScene::2464092757341558772::1747726671::0::1::::<><><>0<>0<><>::uid://crjroqdxq6mu3::::res://textures/Panorama_Sky_04-512x512.png<>uid://cbwn8ghgetj67::::res://level_script.gd<>uid://vyad41iqr1bo::::res://audio/happywalking.ogg<>uid://cy2rmc4ghaoqc::::res://player_controller.tscn<>uid://dqv6dhdxohhpi::::res://model/tree1.glb<>uid://80o6oub02n87::::res://model/test_cube_meshlib2.tres<>uid://bqvbcqj5aqoks::::res://hud.tscn<>uid://eumv2vy2w4jp::::res://camera.gd<>uid://capeo1yv4au00::::res://audio/258142__tuudurt__level-win.wav<>uid://c51t1osnfskv7::::res://end_level.tscn<>uid://etkwbobtve0h::::res://powerup_enhanced.tscn
+world_test_cube.tscn::PackedScene::2464092757341558772::1747761209::0::1::::<><><>0<>0<><>::uid://crjroqdxq6mu3::::res://textures/Panorama_Sky_04-512x512.png<>uid://cbwn8ghgetj67::::res://level_script.gd<>uid://vyad41iqr1bo::::res://audio/happywalking.ogg<>uid://cy2rmc4ghaoqc::::res://player_controller.tscn<>uid://dqv6dhdxohhpi::::res://model/tree1.glb<>uid://80o6oub02n87::::res://model/test_cube_meshlib2.tres<>uid://bqvbcqj5aqoks::::res://hud.tscn<>uid://eumv2vy2w4jp::::res://camera.gd<>uid://capeo1yv4au00::::res://audio/258142__tuudurt__level-win.wav<>uid://c51t1osnfskv7::::res://end_level.tscn<>uid://cpiv3vihlp7g8::::res://secret_door.tscn<>uid://dcdtmtlpxl4qr::::res://secret_area_trigger.tscn<>uid://etkwbobtve0h::::res://powerup_enhanced.tscn
 xpa_dev_console.gd::GDScript/GDScript::2786611872332079544::1747505793::0::1::::<>CanvasLayer<><>0<>0<><>::
 xpa_dev_console.tscn::PackedScene/PackedScene::460868690151443200::1747717316::0::1::::<><><>0<>0<><>::uid://bfx4dcrn0135m::::res://xpa_dev_console.gd
 ::res://addons/::1747725327
@@ -67,12 +71,12 @@ wipe-up.png::CompressedTexture2D/CompressedTexture2D::4392857705087422019::17477
 2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav::AudioStreamWAV/AudioStreamWAV::9146332104414380528::1747715689::1747722819::1::::<><><>0<>0<>19e01fbe1b6214cea681e262299edc0c<>res://.godot/imported/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav-5fc9f0ee2afb29f3764f5c55c96e90a4.sample::
 258142__tuudurt__level-win.wav::AudioStreamWAV/AudioStreamWAV::4804076306458164523::1747715689::1747715689::1::::<><><>0<>0<>886c3b3ce9ed3b9ac75d097fd0858cbf<>res://.godot/imported/258142__tuudurt__level-win.wav-52434205d90ce55b5a5f63fcb2d751fa.sample::
 happywalking.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::1523517703605461408::1747715689::1747720809::1::::<><><>0<>0<>29e9c8d9f2baa12b35fb79b538162575<>res://.godot/imported/happywalking.ogg-98d51c642cb31441a008565932933213.oggvorbisstr::
-::res://model/::1747725446
+::res://model/::1747758020
 test_cube-v2.glb::PackedScene/PackedScene::8685428307771688890::1747443598::1747443598::1::::<><><>0<>0<>9fcb822234936cb2a7af40e0557090bf<>res://.godot/imported/test_cube-v2.glb-3216f6616eec6e54f8dbc2ad28b17de5.scn::uid://lsh7gp17frr5::::res://model/test_cube-v2_Grass_01-512x512.png<>uid://b6bya3kacspu0::::res://model/test_cube-v2_Dirt_09-512x512.png
 test_cube-v2_Dirt_09-512x512.png::CompressedTexture2D/CompressedTexture2D::4565797908157806253::1747443598::1747443599::1::::<><><>0<>0<>a7a189cb1b9e64fce005f14caffe8db0<>res://.godot/imported/test_cube-v2_Dirt_09-512x512.png-226d43f6eee53c8ac54d1288b1beae20.s3tc.ctex::
 test_cube-v2_Grass_01-512x512.png::CompressedTexture2D/CompressedTexture2D::809718583482221772::1747443598::1747443599::1::::<><><>0<>0<>f14823e1e2801e3ca5df591c566aae13<>res://.godot/imported/test_cube-v2_Grass_01-512x512.png-545471fc7d513201478c0299fb456db7.s3tc.ctex::
 test_cube.glb::PackedScene/PackedScene::8892064863894979642::1747441552::1747441552::1::::<><><>0<>0<>b894a7d3b7bd4dac45f352a989505b03<>res://.godot/imported/test_cube.glb-ac097d63cabe4ed058117802330a7bd1.scn::
-test_cube_meshlib2.tres::MeshLibrary::2368747447719256894::1747725446::0::1::::<><><>0<>0<><>::uid://lsh7gp17frr5::::res://model/test_cube-v2_Grass_01-512x512.png<>uid://b6bya3kacspu0::::res://model/test_cube-v2_Dirt_09-512x512.png
+test_cube_meshlib2.tres::MeshLibrary::2368747447719256894::1747758020::0::1::::<><><>0<>0<><>::uid://lsh7gp17frr5::::res://model/test_cube-v2_Grass_01-512x512.png<>uid://b6bya3kacspu0::::res://model/test_cube-v2_Dirt_09-512x512.png
 test_cube_meshlib.tres::MeshLibrary/MeshLibrary::4283806278638115561::1747444769::0::1::::<><><>0<>0<><>::
 tree1.glb::PackedScene/PackedScene::8327523439642423130::1747445974::1747445975::1::::<><><>0<>0<>3ea311c1835523b089c6b6f217bb5dee<>res://.godot/imported/tree1.glb-bc85233fda03e2affef8d5cdda32e31e.scn::uid://bh7crdh77l4t1::::res://model/tree1_Wood_01-512x512.png<>uid://fl0vgcsc64dx::::res://model/tree1_Grass_15-512x512.png
 tree1_Grass_15-512x512.png::CompressedTexture2D/CompressedTexture2D::375208119027455945::1747445975::1747445976::1::::<><><>0<>0<>ec8e5ee3ab24b07bb86e74c24d30abd4<>res://.godot/imported/tree1_Grass_15-512x512.png-8e01413289b01ce67b4499cd43aa28b6.s3tc.ctex::
